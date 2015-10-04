@@ -8,7 +8,7 @@ describe file('/etc/localtime') do
 end
 
 # RPM packages
-# yum install -y emacs gcc git patch tcpdump wget
+# yum install -y emacs gcc git patch tcpdump wget ruby ruby-devel rubygems
 describe package('emacs') do
   it { should be_installed }
 end
@@ -37,7 +37,37 @@ describe package('ruby') do
   it { should be_installed }
 end
 
+describe package('ruby-devel') do
+  it { should be_installed }
+end
+
 describe package('rubygems') do
+  it { should be_installed }
+end
+
+# Other dev related RPMS
+# yum install -y dbm-devel fiddle-devel gdbm-devel openssl-devel readline-devel zlib-devel
+describe package('dbm-devel') do
+  it { should be_installed }
+end
+
+describe package('fiddle-devel') do
+  it { should be_installed }
+end
+
+describe package('gdbm-devel') do
+  it { should be_installed }
+end
+
+describe package('openssl-devel') do
+  it { should be_installed }
+end
+
+describe package('readline-devel') do
+  it { should be_installed }
+end
+
+describe package('zlib-devel') do
   it { should be_installed }
 end
 
