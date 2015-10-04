@@ -73,6 +73,36 @@ describe package('pgdg-redhat94') do
   it { should be_installed }
 end
 
+# PostgreSQL 9.4
+# yum install -y postgresql94 postgresql94-contrib postgresql94-devel postgresql94-libs postgresql94-plperl postgresql94-plpython postgresql94-server
+describe package('postgresql94') do
+  it { should be_installed }
+end
+
+describe package('postgresql94-contrib') do
+  it { should be_installed }
+end
+
+describe package('postgresql94-devel') do
+  it { should be_installed }
+end
+
+describe package('postgresql94-libs') do
+  it { should be_installed }
+end
+
+describe package('postgresql94-plperl') do
+  it { should be_installed }
+end
+
+describe package('postgresql94-plpython') do
+  it { should be_installed }
+end
+
+describe package('postgresql94-server') do
+  it { should be_installed }
+end
+
 # Gem files
 # gem install net-ssh -v 2.9.2
 # gem install serverspec
