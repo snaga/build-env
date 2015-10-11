@@ -1,0 +1,7 @@
+[rhel6-dvd]
+name=Red Hat Enterprise Linux 6.7 - x86_64 - DVD
+baseurl=file:///rhel6u7
+enabled=1
+gpgcheck=1
+gpgkey=file:///rhel6u7/RPM-GPG-KEY-redhat-release
+
