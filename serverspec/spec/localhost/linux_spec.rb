@@ -7,6 +7,15 @@ describe file('/etc/localtime') do
   its(:md5sum) { should eq '9e165b3822e5923e4905ee1653a2f358' }
 end
 
+# iptables
+# iptables -F
+# service iptables save
+# service iptables restart
+describe command('iptables -L') do
+  its(:stdout) { should_not contain('^ACCEPT') }
+  its(:stdout) { should_not contain('^REJECT') }
+end
+
 # RPM packages
 # yum install -y emacs gcc git patch tcpdump wget ruby ruby-devel rubygems
 describe package('emacs') do
