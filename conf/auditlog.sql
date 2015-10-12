@@ -37,7 +37,26 @@ select
   from
     auditlog_raw
  where
-    record->>'event' like '%auth%';
+    record->>'event' like '%auth%'
+union all
+select
+    tag,
+    time::date as "date",
+    time::time as "time",
+    (record->>'pid')::int as pid,
+    record->>'host' as host,
+    record->>'user' as user,
+	record->>'level' as level,
+	record->>'dbname' as dbname,
+	record->>'pgaudit.tag' as tag,
+	'PERMISSION' as class,
+    null as obj_type,
+    null as obj_name,
+    record->>'message' as cmd_text
+  from
+    auditlog_raw
+ where
+    record->>'event' like 'permission%';
 
 -- Viewer
 REVOKE ALL ON auditlog FROM audit102;
