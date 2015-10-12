@@ -17,7 +17,7 @@ describe command('iptables -L') do
 end
 
 # RPM packages
-# yum install -y emacs gcc git patch tcpdump wget ruby ruby-devel rubygems ftp unzip
+# yum install -y emacs gcc git patch tcpdump wget ruby ruby-devel rubygems ftp unzip rpmdevtools
 describe package('emacs') do
   it { should be_installed }
 end
@@ -59,6 +59,10 @@ describe package('ftp') do
 end
 
 describe package('unzip') do
+  it { should be_installed }
+end
+
+describe package('rpmdevtools') do
   it { should be_installed }
 end
 
