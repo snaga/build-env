@@ -71,7 +71,15 @@ describe package('rpmdevtools') do
 end
 
 # Other dev related RPMS
-# yum install -y dbm-devel fiddle-devel gdbm-devel openssl-devel readline-devel zlib-devel
+# yum install -y bison flex dbm-devel fiddle-devel gdbm-devel openssl-devel readline-devel zlib-devel
+describe package('bison') do
+  it { should be_installed }
+end
+
+describe package('flex') do
+  it { should be_installed }
+end
+
 describe package('dbm-devel') do
   it { should be_installed }
 end
