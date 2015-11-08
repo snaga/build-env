@@ -7,10 +7,15 @@ require 'spec_helper'
 # i:wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
 # i:tar zxvf Python-2.7.9.tgz
 # i:cd Python-2.7.9
-# i:./configure && make
+# i:./configure --enable-shared LDFLAGS=-Wl,-rpath,/usr/local/lib
+# i:make
 # i:sudo make install
 describe command('python2.7 -V') do
   its(:stderr) { should match /^Python 2.7/ }
+end
+
+describe file('/usr/local/lib/libpython2.7.so') do
+  it { should be_file }
 end
 
 # /usr/local/bin/python get-pip.py
