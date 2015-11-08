@@ -18,7 +18,8 @@ describe file('/usr/local/lib/libpython2.7.so') do
   it { should be_file }
 end
 
-# /usr/local/bin/python get-pip.py
+# i:wget https://bootstrap.pypa.io/get-pip.py
+# i:/usr/local/bin/python get-pip.py
 describe command('/usr/local/bin/pip --version') do
   its(:stdout) { should match /python 2.7/ }
 end
