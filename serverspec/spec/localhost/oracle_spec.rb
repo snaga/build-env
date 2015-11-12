@@ -219,6 +219,7 @@ describe file('/usr/oracle/.bash_profile') do
   its(:content) { should match /^umask 022/ }
   its(:content) { should match /^export ORACLE_BASE=\/usr\/oracle\/app/ }
   its(:content) { should match /^export ORACLE_HOME=\$ORACLE_BASE\/product\/11.2.0\/dbhome_1/ }
+  its(:content) { should match /^export ORACLE_SID=orcl/ }
   its(:content) { should match /^export PATH=\$PATH:\$ORACLE_HOME\/bin/ }
 end
 
