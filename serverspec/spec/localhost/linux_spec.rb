@@ -17,7 +17,7 @@ describe command('iptables -L') do
 end
 
 # RPM packages
-# yum install -y emacs gcc git patch tcpdump wget ruby ruby-devel rubygems ftp unzip zip rpmdevtools screen man-pages strace
+# yum install -y emacs gcc git patch tcpdump wget ruby ruby-devel rubygems ftp unzip zip rpmdevtools screen man-pages strace bind-utils
 describe package('emacs') do
   it { should be_installed }
 end
@@ -79,6 +79,10 @@ describe package('man-pages') do
 end
 
 describe package('strace') do
+  it { should be_installed }
+end
+
+describe package('bind-utils') do
   it { should be_installed }
 end
 
