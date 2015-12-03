@@ -91,20 +91,12 @@ describe package('bzip2-devel') do
 end
 
 # Other dev related RPMS
-# i:yum install -y bison flex dbm-devel fiddle-devel gdbm-devel openssl-devel readline-devel zlib-devel
+# i:yum install -y bison flex dbm-devel openssl-devel readline-devel zlib-devel
 describe package('bison') do
   it { should be_installed }
 end
 
 describe package('flex') do
-  it { should be_installed }
-end
-
-describe package('dbm-devel') do
-  it { should be_installed }
-end
-
-describe package('fiddle-devel') do
   it { should be_installed }
 end
 
