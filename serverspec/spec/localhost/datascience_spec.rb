@@ -158,7 +158,7 @@ end
 #
 # Required for Machine Learning Foundations @ Coursera
 # -----------------------------------------
-# i:pip install --upgrade --no-cache-dir https://get.dato.com/GraphLab-Create/1.6.1/<email>/<product key>/GraphLab-Create-License.tar.gz
+# i:pip install --upgrade --no-cache-dir https://get.dato.com/GraphLab-Create/1.7.1/<email>/<product key>/GraphLab-Create-License.tar.gz
 describe file('/usr/local/lib/python2.7/site-packages/graphlab') do
   it { should be_directory }
 end
