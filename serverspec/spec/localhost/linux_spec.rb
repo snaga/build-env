@@ -218,3 +218,10 @@ describe file('/usr/bin/sphinx-quickstart') do
   it { should exist }
   it { should be_executable }
 end
+
+# gmail-smtp
+# yum install -y cyrus-sasl-plain
+describe package('cyrus-sasl-plain') do
+  it { should be_installed }
+end
+
