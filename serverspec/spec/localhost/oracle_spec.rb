@@ -246,3 +246,10 @@ describe file('/etc/oratab') do
   its(:content) { should match /^orcl:\/usr\/oracle\/app\/product\/11.2.0\/dbhome_1:N/ }
 end
 
+# i:chmod 644 /usr/oracle/app/product/11.2.0/dbhome_1/network/admin/tnsnames.ora
+describe file('/usr/oracle/app/product/11.2.0/dbhome_1/network/admin/tnsnames.ora') do
+  it { should be_file }
+  it { should be_mode 644 }
+  it { should be_owned_by 'oracle' }
+  it { should be_grouped_into 'oinstall' }
+end

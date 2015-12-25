@@ -158,7 +158,21 @@ end
 #
 # Required for Machine Learning Foundations @ Coursera
 # -----------------------------------------
-# i:pip install --upgrade --no-cache-dir https://get.dato.com/GraphLab-Create/1.6.1/<email>/<product key>/GraphLab-Create-License.tar.gz
+# i:pip install --upgrade --no-cache-dir https://get.dato.com/GraphLab-Create/1.7.1/<email>/<product key>/GraphLab-Create-License.tar.gz
 describe file('/usr/local/lib/python2.7/site-packages/graphlab') do
+  it { should be_directory }
+end
+
+# i:yum install libpng-devel freetype-devel
+describe package('libpng-devel') do
+  it { should be_installed }
+end
+
+describe package('freetype-devel') do
+  it { should be_installed }
+end
+
+# i: /usr/local/bin/pip install matplotlib
+describe file('/usr/local/lib/python2.7/site-packages/matplotlib') do
   it { should be_directory }
 end
