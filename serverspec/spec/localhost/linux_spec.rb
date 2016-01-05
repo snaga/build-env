@@ -178,6 +178,11 @@ describe package('postgresql94-server') do
   it { should be_installed }
 end
 
+describe service('postgresql-9.4') do
+  it { should be_enabled }
+  it { should be_running }
+end
+
 # Gem files
 # i:gem install net-ssh -v 2.9.2
 # i:gem install serverspec
