@@ -178,6 +178,8 @@ describe package('postgresql94-server') do
   it { should be_installed }
 end
 
+# i:service postgresql-9.4 start
+# i:chkconfig postgresql-9.4 on
 describe service('postgresql-9.4') do
   it { should be_enabled }
   it { should be_running }
