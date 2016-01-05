@@ -224,3 +224,19 @@ describe package('cyrus-sasl-plain') do
   it { should be_installed }
 end
 
+# i:pip install feedparser
+describe file('/usr/lib/python2.6/site-packages/feedparser.py') do
+  it { should be_file }
+  it { should exist }
+end
+
+# i:yum install python-devel
+describe package('python-devel') do
+  it { should be_installed }
+end
+
+# i:env PATH=/usr/pgsql-9.4/bin:$PATH pip install psycopg2
+describe file('/usr/lib/python2.6/site-packages/psycopg2/_psycopg.so') do
+  it { should be_file }
+  it { should exist }
+end
