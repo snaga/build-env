@@ -240,3 +240,29 @@ describe file('/usr/lib/python2.6/site-packages/psycopg2/_psycopg.so') do
   it { should be_file }
   it { should exist }
 end
+
+
+# -----------------------------------
+# python readability
+# -----------------------------------
+
+# i:yum install libxml2-devel libxslt-devel
+describe package('libxml2-devel') do
+  it { should be_installed }
+end
+
+describe package('libxslt-devel') do
+  it { should be_installed }
+end
+
+# i:pip install readability-lxml
+describe file('/usr/lib/python2.6/site-packages/readability') do
+  it { should be_directory }
+  it { should exist }
+end
+
+# i:pip install html2text
+describe file('/usr/lib/python2.6/site-packages/html2text') do
+  it { should be_directory }
+  it { should exist }
+end
