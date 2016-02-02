@@ -12,6 +12,7 @@ LANG=ja_JP.UTF-8
 LC_MESSAGES=C
 export PATH LANG LC_MESSAGES
 
+export ORACLE_SID=orcl
 export ORACLE_BASE=/usr/oracle/app
 export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1
 export ORACLE_SID=orcl
