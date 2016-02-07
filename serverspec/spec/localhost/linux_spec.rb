@@ -16,6 +16,14 @@ describe command('iptables -L') do
   its(:stdout) { should_not contain('^REJECT') }
 end
 
+# SoftLayer APF (Advanced Policy Firewall)
+# i:service apf stop
+# i:chkconfig apf off
+describe service('apf') do
+  it { should_not be_enabled }
+  it { should_not be_running }
+end
+
 # RPM packages
 # i:yum install -y emacs gcc git patch tcpdump wget ruby ruby-devel rubygems ftp unzip zip rpmdevtools screen man-pages strace bind-utils bzip2-devel
 describe package('emacs') do
