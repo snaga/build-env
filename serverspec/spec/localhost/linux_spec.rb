@@ -327,3 +327,17 @@ describe file('/usr/lib/python2.6/site-packages/IPy.py') do
   it { should exist }
 end
 
+# -----------------------------------
+# EnOcean USB serial
+# -----------------------------------
+# i:pip install importlib
+describe file('/usr/lib/python2.6/site-packages/importlib') do
+  it { should be_directory }
+  it { should exist }
+end
+
+# i:pip install pyserial
+describe file('/usr/lib/python2.6/site-packages/serial') do
+  it { should be_directory }
+  it { should exist }
+end
