@@ -229,3 +229,13 @@ describe file('/usr/lib/python2.6/site-packages/serial') do
   it { should be_directory }
   it { should exist }
 end
+
+# i:yum install autoconf automake
+describe package('autoconf') do
+  it { should be_installed }
+end
+
+describe package('automake') do
+  it { should be_installed }
+end
+
