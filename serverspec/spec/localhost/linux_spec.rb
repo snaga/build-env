@@ -99,7 +99,7 @@ describe package('bzip2-devel') do
 end
 
 # Other dev related RPMS
-# i:yum install -y bison flex dbm-devel openssl-devel readline-devel zlib-devel
+# i:yum install -y bison flex dbm-devel openssl-devel readline-devel zlib-devel perf
 describe package('bison') do
   it { should be_installed }
 end
@@ -121,6 +121,10 @@ describe package('readline-devel') do
 end
 
 describe package('zlib-devel') do
+  it { should be_installed }
+end
+
+describe package('perf') do
   it { should be_installed }
 end
 
