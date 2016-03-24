@@ -25,20 +25,12 @@ describe service('apf') do
 end
 
 # RPM packages
-# i:yum install -y emacs gcc git patch tcpdump wget ruby ruby-devel rubygems ftp unzip zip rpmdevtools screen man-pages strace bind-utils bzip2-devel
+# i:yum install -y emacs git tcpdump wget ruby rubygems ftp unzip zip screen man-pages strace bind-utils
 describe package('emacs') do
   it { should be_installed }
 end
 
-describe package('gcc') do
-  it { should be_installed }
-end
-
 describe package('git') do
-  it { should be_installed }
-end
-
-describe package('patch') do
   it { should be_installed }
 end
 
@@ -51,10 +43,6 @@ describe package('wget') do
 end
 
 describe package('ruby') do
-  it { should be_installed }
-end
-
-describe package('ruby-devel') do
   it { should be_installed }
 end
 
@@ -74,10 +62,6 @@ describe package('zip') do
   it { should be_installed }
 end
 
-describe package('rpmdevtools') do
-  it { should be_installed }
-end
-
 describe package('screen') do
   it { should be_installed }
 end
@@ -91,40 +75,6 @@ describe package('strace') do
 end
 
 describe package('bind-utils') do
-  it { should be_installed }
-end
-
-describe package('bzip2-devel') do
-  it { should be_installed }
-end
-
-# Other dev related RPMS
-# i:yum install -y bison flex dbm-devel openssl-devel readline-devel zlib-devel perf
-describe package('bison') do
-  it { should be_installed }
-end
-
-describe package('flex') do
-  it { should be_installed }
-end
-
-describe package('gdbm-devel') do
-  it { should be_installed }
-end
-
-describe package('openssl-devel') do
-  it { should be_installed }
-end
-
-describe package('readline-devel') do
-  it { should be_installed }
-end
-
-describe package('zlib-devel') do
-  it { should be_installed }
-end
-
-describe package('perf') do
   it { should be_installed }
 end
 
@@ -232,14 +182,5 @@ end
 describe file('/usr/lib/python2.6/site-packages/serial') do
   it { should be_directory }
   it { should exist }
-end
-
-# i:yum install autoconf automake
-describe package('autoconf') do
-  it { should be_installed }
-end
-
-describe package('automake') do
-  it { should be_installed }
 end
 
