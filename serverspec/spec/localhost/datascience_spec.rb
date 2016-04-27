@@ -41,7 +41,7 @@ end
 #   --enable-unicode=ucs4 is required for a python build for GraphLab.
 #   ref: http://forum.dato.com/discussion/686/undefined-symbol-pyunicodeucs4-decodeutf8-on-centos-release-6-4-final
 #
-describe command('python2.7 -V') do
+describe command('/usr/local/bin/python2.7 -V') do
   its(:stderr) { should match /^Python 2.7/ }
 end
 
@@ -150,7 +150,7 @@ describe file('/usr/local/bin/jupyter') do
 end
 
 describe command('/usr/local/bin/jupyter --version') do
-  its(:stdout) { should match /^4.0.\d+/ }
+  its(:stdout) { should match /^4.1.\d+/ }
 end
 
 # -----------------------------------------

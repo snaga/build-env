@@ -106,8 +106,8 @@ describe service('postgresql-9.5') do
   it { should be_running }
 end
 
-# i:env PATH=/usr/pgsql-9.4/bin:$PATH pip install psycopg2
-describe file('/usr/lib/python2.6/site-packages/psycopg2/_psycopg.so') do
+# i:env PATH=/usr/pgsql-9.5/bin:$PATH /usr/local/bin/pip install psycopg2
+describe file('/usr/local/lib/python2.7/site-packages/psycopg2/_psycopg.so') do
   it { should be_file }
   it { should exist }
 end
