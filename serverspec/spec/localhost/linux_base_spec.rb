@@ -25,7 +25,7 @@ describe service('apf') do
 end
 
 # RPM packages
-# i:yum install -y emacs git tcpdump wget ruby rubygems ftp unzip zip screen man-pages strace bind-utils
+# i:yum install -y emacs git tcpdump wget ruby rubygems ftp unzip zip screen man-pages strace bind-utils mlocate
 describe package('emacs') do
   it { should be_installed }
 end
@@ -75,6 +75,10 @@ describe package('strace') do
 end
 
 describe package('bind-utils') do
+  it { should be_installed }
+end
+
+describe package('mlocate') do
   it { should be_installed }
 end
 
