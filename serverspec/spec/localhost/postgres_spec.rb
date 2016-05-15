@@ -2,16 +2,11 @@ require 'rubygems'
 require 'spec_helper'
 
 # PostgreSQL Yum
-# i:rpm -ivh http://yum.postgresql.org/9.0/redhat/rhel-6-x86_64/pgdg-redhat90-9.0-5.noarch.rpm
 # i:rpm -ivh http://yum.postgresql.org/9.1/redhat/rhel-6-x86_64/pgdg-redhat91-9.1-5.noarch.rpm
 # i:rpm -ivh http://yum.postgresql.org/9.2/redhat/rhel-6-x86_64/pgdg-redhat92-9.2-7.noarch.rpm
 # i:rpm -ivh http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-redhat93-9.3-1.noarch.rpm
 # i:rpm -ivh http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
 # i:rpm -ivh http://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/pgdg-redhat95-9.5-2.noarch.rpm
-describe package('pgdg-redhat90') do
-  it { should be_installed }
-end
-
 describe package('pgdg-redhat91') do
   it { should be_installed }
 end
@@ -32,39 +27,39 @@ describe package('pgdg-redhat95') do
   it { should be_installed }
 end
 
-# PostgreSQL 9.4
-# i:yum install -y postgresql94 postgresql94-contrib postgresql94-devel postgresql94-libs postgresql94-plperl postgresql94-plpython postgresql94-server
-describe package('postgresql94') do
+# PostgreSQL 9.1 (oldest one)
+# i:yum install -y postgresql91 postgresql91-contrib postgresql91-devel postgresql91-libs postgresql91-plperl postgresql91-plpython postgresql91-server
+describe package('postgresql91') do
   it { should be_installed }
 end
 
-describe package('postgresql94-contrib') do
+describe package('postgresql91-contrib') do
   it { should be_installed }
 end
 
-describe package('postgresql94-devel') do
+describe package('postgresql91-devel') do
   it { should be_installed }
 end
 
-describe package('postgresql94-libs') do
+describe package('postgresql91-libs') do
   it { should be_installed }
 end
 
-describe package('postgresql94-plperl') do
+describe package('postgresql91-plperl') do
   it { should be_installed }
 end
 
-describe package('postgresql94-plpython') do
+describe package('postgresql91-plpython') do
   it { should be_installed }
 end
 
-describe package('postgresql94-server') do
+describe package('postgresql91-server') do
   it { should be_installed }
 end
 
-# i:service postgresql-9.4 start
-# i:chkconfig postgresql-9.4 on
-describe service('postgresql-9.4') do
+# i:service postgresql-9.1 start
+# i:chkconfig postgresql-9.1 on
+describe service('postgresql-9.1') do
   it { should_not be_enabled }
   it { should_not be_running }
 end
