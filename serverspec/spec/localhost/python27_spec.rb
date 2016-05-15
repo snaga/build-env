@@ -40,3 +40,13 @@ describe file('/usr/local/lib/python2.7/site-packages/psycopg2/_psycopg.so') do
   it { should be_file }
   it { should exist }
 end
+
+# i:https://github.com/pyinstaller/pyinstaller/releases/download/v3.2/PyInstaller-3.2.tar.gz
+# i:tar zxvf PyInstaller-3.2.tar.gz
+# i:cd PyInstaller-3.2
+# i:/usr/local/bin/python2.7 setup.py install
+describe file('/usr/local/bin/pyinstaller') do
+  it { should be_file }
+  it { should exist }
+  it { should be_executable }
+end
