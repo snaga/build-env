@@ -225,6 +225,7 @@ end
 
 # i:cd $TMP/database
 # i:./runInstaller
+# i:./runInstaller -silent -responseFile ../ora11g.rsp
 describe file('/usr/oracle/app/product/11.2.0/dbhome_1') do
   it { should be_directory }
 end

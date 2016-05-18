@@ -83,7 +83,7 @@ describe package('mlocate') do
 end
 
 # EPEL
-# i:rpm -ivh http://ftp.jaist.ac.jp/pub/Linux/Fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+# i:rpm -ivh wget http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 describe package('epel-release-6') do
   it { should be_installed }
 end
@@ -113,54 +113,10 @@ describe file('/usr/bin/pip') do
   it { should be_executable }
 end
 
-# Sphinx
-# i:pip install sphinx
-describe file('/usr/bin/sphinx-quickstart') do
-  it { should be_file }
-  it { should exist }
-  it { should be_executable }
-end
-
 # gmail-smtp
 # yum install -y cyrus-sasl-plain
 describe package('cyrus-sasl-plain') do
   it { should be_installed }
-end
-
-# i:pip install feedparser
-describe file('/usr/lib/python2.6/site-packages/feedparser.py') do
-  it { should be_file }
-  it { should exist }
-end
-
-# i:yum install python-devel
-describe package('python-devel') do
-  it { should be_installed }
-end
-
-# -----------------------------------
-# python readability
-# -----------------------------------
-
-# i:yum install libxml2-devel libxslt-devel
-describe package('libxml2-devel') do
-  it { should be_installed }
-end
-
-describe package('libxslt-devel') do
-  it { should be_installed }
-end
-
-# i:pip install readability-lxml
-describe file('/usr/lib/python2.6/site-packages/readability') do
-  it { should be_directory }
-  it { should exist }
-end
-
-# i:pip install html2text
-describe file('/usr/lib/python2.6/site-packages/html2text') do
-  it { should be_directory }
-  it { should exist }
 end
 
 # -----------------------------------
@@ -170,21 +126,6 @@ end
 # i:pip install IPy
 describe file('/usr/lib/python2.6/site-packages/IPy.py') do
   it { should be_file }
-  it { should exist }
-end
-
-# -----------------------------------
-# EnOcean USB serial
-# -----------------------------------
-# i:pip install importlib
-describe file('/usr/lib/python2.6/site-packages/importlib') do
-  it { should be_directory }
-  it { should exist }
-end
-
-# i:pip install pyserial
-describe file('/usr/lib/python2.6/site-packages/serial') do
-  it { should be_directory }
   it { should exist }
 end
 

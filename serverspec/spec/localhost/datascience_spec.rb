@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'spec_helper'
 
+# This spec file is depending the python27_spec test.
+
 # -----------------------
 # zlib (>1.2.3)
 # -----------------------
@@ -25,34 +27,6 @@ end
 
 describe file('/usr/local/include/zlib.h') do
   it { should be_file }
-end
-
-# -----------------------
-# Python 2.7
-# -----------------------
-# i:wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz
-# i:tar zxvf Python-2.7.9.tgz
-# i:cd Python-2.7.9
-# i:./configure --enable-shared LDFLAGS=-Wl,-rpath,/usr/local/lib --enable-unicode=ucs4
-# i:make
-# i:sudo make install
-#
-# NOTE:
-#   --enable-unicode=ucs4 is required for a python build for GraphLab.
-#   ref: http://forum.dato.com/discussion/686/undefined-symbol-pyunicodeucs4-decodeutf8-on-centos-release-6-4-final
-#
-describe command('/usr/local/bin/python2.7 -V') do
-  its(:stderr) { should match /^Python 2.7/ }
-end
-
-describe file('/usr/local/lib/libpython2.7.so') do
-  it { should be_file }
-end
-
-# i:wget https://bootstrap.pypa.io/get-pip.py
-# i:/usr/local/bin/python get-pip.py
-describe command('/usr/local/bin/pip --version') do
-  its(:stdout) { should match /python 2.7/ }
 end
 
 # -----------------------
