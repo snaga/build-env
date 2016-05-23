@@ -14,3 +14,9 @@ describe package('jenkins') do
   it { should be_installed }
 end
 
+# i:service jenkins start
+# i:chkconfig jenkins on
+describe service('jenkins') do
+  it { should_not be_enabled }
+  it { should_not be_running }
+end
