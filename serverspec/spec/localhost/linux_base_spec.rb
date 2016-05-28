@@ -83,7 +83,7 @@ describe package('mlocate') do
 end
 
 # EPEL
-# i:rpm -ivh wget http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+# i:rpm -ivh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 describe package('epel-release-6') do
   it { should be_installed }
 end
