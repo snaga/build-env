@@ -50,3 +50,9 @@ describe file('/usr/local/bin/pyinstaller') do
   it { should exist }
   it { should be_executable }
 end
+
+# SQLite with PyInstaller
+# i:yum install -y sqlite-devel
+describe package('sqlite-devel') do
+  it { should be_installed }
+end
