@@ -113,6 +113,11 @@ describe file('/usr/local/lib/python2.7/site-packages/cherrypy') do
   it { should be_directory }
 end
 
+# i:/usr/local/bin/pip install utils
+describe file('/usr/local/lib/python2.7/site-packages/utils') do
+  it { should be_directory }
+end
+
 # i: pip install jupyter
 describe file('/usr/local/lib/python2.7/site-packages/jupyter_core') do
   it { should be_directory }
