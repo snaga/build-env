@@ -1,3 +1,8 @@
+# i:yum install -y bzip2-devel
+describe package('bzip2-devel') do
+  it { should be_installed }
+end
+
 # -----------------------
 # Python 2.7
 # -----------------------
@@ -14,6 +19,10 @@
 #
 describe command('/usr/local/bin/python2.7 -V') do
   its(:stderr) { should match /^Python 2.7/ }
+end
+
+describe command('/usr/local/bin/python -c "import bz2; print bz2.__doc__"') do
+  its(:stdout) { should match /^The python bz2 module provides a comprehensive interface for/ }
 end
 
 describe file('/usr/local/lib/libpython2.7.so') do
