@@ -16,6 +16,8 @@ describe file('/var/www/html/robots.txt') do
   it { should be_mode 644 }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
+  it { should contain 'User-agent: *' }
+  it { should contain 'Disallow: /' }
 end
 
 # HTTPD service

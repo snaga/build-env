@@ -3,6 +3,11 @@ describe package('bzip2-devel') do
   it { should be_installed }
 end
 
+# i:yum install -y openssl-devel
+describe package('openssl-devel') do
+  it { should be_installed }
+end
+
 # -----------------------
 # Python 2.7
 # -----------------------

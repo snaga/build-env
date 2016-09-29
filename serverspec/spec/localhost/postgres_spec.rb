@@ -7,17 +7,17 @@ require 'spec_helper'
 # i:rpm -ivh http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-redhat93-9.3-1.noarch.rpm
 # i:rpm -ivh http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
 # i:rpm -ivh http://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/pgdg-redhat95-9.5-2.noarch.rpm
-describe package('pgdg-redhat91') do
-  it { should be_installed }
-end
+#describe package('pgdg-redhat91') do
+#  it { should be_installed }
+#end
 
-describe package('pgdg-redhat92') do
-  it { should be_installed }
-end
+#describe package('pgdg-redhat92') do
+#  it { should be_installed }
+#end
 
-describe package('pgdg-redhat93') do
-  it { should be_installed }
-end
+#describe package('pgdg-redhat93') do
+#  it { should be_installed }
+#end
 
 describe package('pgdg-redhat94') do
   it { should be_installed }
