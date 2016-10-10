@@ -7,6 +7,11 @@ describe file('/etc/localtime') do
   its(:md5sum) { should eq '9e165b3822e5923e4905ee1653a2f358' }
 end
 
+describe file('/etc/sysconfig/network') do
+  it { should_not contain 'localhost' }
+  it { should_not contain 'localdomain' }
+end
+
 # iptables
 # i:iptables -F
 # i:service iptables save
