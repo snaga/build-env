@@ -104,6 +104,11 @@ describe package('resource-agents') do
   it { should be_installed }
 end
 
+# i:yum install -y pcs
+describe package('pcs') do
+  it { should be_installed }
+end
+
 # i:vi /etc/corosync/corosync.conf
 describe file('/etc/corosync/corosync.conf') do
   it { should be_file }
@@ -165,8 +170,15 @@ describe file('/etc/sysconfig/network') do
   it { should contain('HOSTNAME=devpg01.localdomain') }
 end
 
-describe command('crm_mon -AD1') do
-  its(:stdout) { should contain('Online: \[ localhost.localdomain \]') }
-  its(:stdout) { should contain('vip').before(/\(ocf::heartbeat:IPaddr2\):\tStarted localhost.localdomain/) }
-  its(:stdout) { should contain('pgsql').before(/\(ocf::heartbeat:pgsql\):\tStarted localhost.localdomain/) }
+describe command('crm_mon -fA1') do
+  its(:stdout) { should contain('Online: \[ devpg01.localdomain \]') }
+  its(:stdout) { should contain('vip').before(/\(ocf::heartbeat:IPaddr2\):\tStarted devpg01.localdomain/) }
+  its(:stdout) { should contain('Clone Set: clone_ping').before(/\[ping\]\n     Started: \[ devpg01.localdomain \]/) }
+  its(:stdout) { should contain('pgsql').before(/\(ocf::heartbeat:pgsql\):\tStarted devpg01.localdomain/) }
+  its(:stdout) { should contain('diskd').before(/\(ocf::pacemaker:diskd\):\tStarted devpg01.localdomain/) }
+end
+
+# check vip
+describe command('ip addr') do
+  its(:stdout) { should contain('scope global secondary eth0').after(/inet 10.0.2.11.24 brd 10.0.2.255/) }
 end

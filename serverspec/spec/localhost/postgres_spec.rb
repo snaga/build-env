@@ -68,3 +68,7 @@ describe service('postgresql-9.5') do
   it { should_not be_enabled }
   it { should_not be_running }
 end
+
+describe process('postgres') do
+  it { should be_running }
+end
