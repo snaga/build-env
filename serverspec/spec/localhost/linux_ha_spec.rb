@@ -14,6 +14,7 @@ describe file('/etc/yum.repos.d/CentOS-Base.repo') do
   it { should contain 'exclude=pacemaker\* corosync\* resource-agents\* crmsh\* cluster-glue\* libqb\* fence-agents\* pcs\*' }
 end
 
+# i:yum install -y pacemaker-all
 describe package('pacemaker-all') do
   it { should be_installed }
 end
