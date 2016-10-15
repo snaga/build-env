@@ -106,11 +106,17 @@ end
 # i:vi /etc/corosync/corosync.conf
 describe file('/etc/corosync/corosync.conf') do
   it { should be_file }
+  it { should be_mode 644 }
+  it { should be_owned_by 'root' }
+  it { should contain 'ringnumber: 0' }
+  it { should contain 'ringnumber: 1' }
+  it { should contain 'bindnetaddr: 10.0.2.0' }
 end
 
 # i:corosync-keygen -l
 describe file('/etc/corosync/authkey') do
   it { should be_file }
+  it { should be_owned_by 'root' }
 end
 
 # i:vi /etc/sysconfig/pacemaker
@@ -149,4 +155,17 @@ describe process('pengine') do
 end
 describe process('crmd') do
   it { should be_running }
+end
+describe process('ifcheckd') do
+  it { should be_running }
+end
+
+describe file('/etc/sysconfig/network') do
+  it { should contain('HOSTNAME=devpg01.localdomain') }
+end
+
+describe command('crm_mon -AD1') do
+  its(:stdout) { should contain('Online: \[ localhost.localdomain \]') }
+  its(:stdout) { should contain('vip').before(/\(ocf::heartbeat:IPaddr2\):\tStarted localhost.localdomain/) }
+  its(:stdout) { should contain('pgsql').before(/\(ocf::heartbeat:pgsql\):\tStarted localhost.localdomain/) }
 end
