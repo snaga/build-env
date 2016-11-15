@@ -86,6 +86,22 @@ describe file('/usr/lib/python2.6/site-packages/feedparser.py') do
 end
 
 # -----------------------------------
+# git
+# -----------------------------------
+# i:sudo yum install -y perl-ExtUtils-MakeMaker gettext
+# i:wget https://www.kernel.org/pub/software/scm/git/git-2.10.2.tar.gz
+# i:tar zxf git-2.10.2.tar.gz
+# i:cd git-2.10.2
+# i:./configure --prefix=/usr/local
+# i:make
+# i:sudo make install
+describe file('/usr/local/bin/git') do
+  it { should be_file }
+  it { should exist }
+#  it { should be_executable }
+end
+
+# -----------------------------------
 # python readability
 # -----------------------------------
 
