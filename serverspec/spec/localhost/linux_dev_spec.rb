@@ -88,7 +88,7 @@ end
 # -----------------------------------
 # git
 # -----------------------------------
-# i:sudo yum install -y perl-ExtUtils-MakeMaker gettext
+# i:sudo yum install -y perl-ExtUtils-MakeMaker gettext libcurl-devel
 # i:wget https://www.kernel.org/pub/software/scm/git/git-2.10.2.tar.gz
 # i:tar zxf git-2.10.2.tar.gz
 # i:cd git-2.10.2
