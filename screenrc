@@ -1,2 +1,2 @@
 escape ^Vt
-
+termcapinfo xterm* ti@:te@
