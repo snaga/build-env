@@ -8,6 +8,7 @@ require 'spec_helper'
 # i:rpm -ivh http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm
 # i:rpm -ivh http://yum.postgresql.org/9.5/redhat/rhel-6-x86_64/pgdg-redhat95-9.5-2.noarch.rpm
 # i:rpm -ivh https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-6-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+# i:rpm -ivh https://download.postgresql.org/pub/repos/yum/10/redhat/rhel-7-x86_64/pgdg-centos10-10-2.noarch.rpm
 #describe package('pgdg-redhat91') do
 #  it { should be_installed }
 #end
@@ -20,51 +21,56 @@ require 'spec_helper'
 #  it { should be_installed }
 #end
 
-describe package('pgdg-redhat94') do
+#describe package('pgdg-redhat94') do
+#  it { should be_installed }
+#end
+
+#describe package('pgdg-redhat95') do
+#  it { should be_installed }
+#end
+
+#describe package('pgdg-centos96') do
+#  it { should be_installed }
+#end
+
+describe package('pgdg-centos10') do
   it { should be_installed }
 end
 
-describe package('pgdg-redhat95') do
+# PostgreSQL 10
+# i:yum install -y postgresql10 postgresql10-contrib postgresql10-devel postgresql10-libs postgresql10-plperl postgresql10-plpython postgresql10-server
+describe package('postgresql10') do
   it { should be_installed }
 end
 
-describe package('pgdg-centos96') do
+describe package('postgresql10-contrib') do
   it { should be_installed }
 end
 
-# PostgreSQL 9.5
-# i:yum install -y postgresql95 postgresql95-contrib postgresql95-devel postgresql95-libs postgresql95-plperl postgresql95-plpython postgresql95-server
-describe package('postgresql95') do
+describe package('postgresql10-devel') do
   it { should be_installed }
 end
 
-describe package('postgresql95-contrib') do
+describe package('postgresql10-libs') do
   it { should be_installed }
 end
 
-describe package('postgresql95-devel') do
+describe package('postgresql10-plperl') do
   it { should be_installed }
 end
 
-describe package('postgresql95-libs') do
+describe package('postgresql10-plpython') do
   it { should be_installed }
 end
 
-describe package('postgresql95-plperl') do
+describe package('postgresql10-server') do
   it { should be_installed }
 end
 
-describe package('postgresql95-plpython') do
-  it { should be_installed }
-end
-
-describe package('postgresql95-server') do
-  it { should be_installed }
-end
-
-# i:service postgresql-9.5 start
-# i:chkconfig postgresql-9.5 on
-describe service('postgresql-9.5') do
+# i:env PGSETUP_INITDB_OPTIONS="--no-locale -E utf-8" /usr/pgsql-10/bin/postgresql-10-setup initdb
+# i:systemctl enable postgresql-10
+# i:systemctl start postgresql-10
+describe service('postgresql-10') do
   it { should be_enabled }
   it { should be_running }
 end
