@@ -1,6 +1,6 @@
 #!/bin/sh
 
-yum install -y rubygems
+yum install -y rubygems ruby-devel
 gem install json --no-ri --no-rdoc -V
 gem install net-ssh -v 2.9.2 --no-ri --no-rdoc -V
 gem install serverspec --no-ri --no-rdoc -V

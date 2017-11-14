@@ -119,20 +119,20 @@ end
 # i:net.core.rmem_max=4194304
 # i:net.core.wmem_max=1048576
 # i:fs.aio-max-nr = 1048576
-describe file('/etc/sysctl.conf') do
-  its(:content) { should match /^net.ipv4.ip_local_port_range = 9000 65500/ }
-  its(:content) { should match /^fs.file-max = 6815744/ }
-  its(:content) { should match /^kernel.shmall = 10523004/ }
-  its(:content) { should match /^kernel.shmmax = 6465333657/ }
-  its(:content) { should match /^kernel.shmmni = 4096/ }
-  its(:content) { should match /^kernel.sem = 250 32000 100 128/ }
-  its(:content) { should match /^net.core.rmem_default=262144/ }
-  its(:content) { should match /^net.core.wmem_default=262144/ }
-  its(:content) { should match /^net.core.rmem_max=4194304/ }
-  its(:content) { should match /^net.core.wmem_max=1048576/ }
-  its(:content) { should match /^fs.aio-max-nr = 1048576/ }
-  its(:content) { should_not match /^kernel.shmmax = 68719476736/ }
-  its(:content) { should_not match /^kernel.shmall = 4294967296/ }
+describe command('sysctl -a') do
+  its(:stdout) { should match /^net.ipv4.ip_local_port_range = 9000\t65500/ }
+  its(:stdout) { should match /^fs.file-max = 6815744/ }
+  its(:stdout) { should match /^kernel.shmall = 10523004/ }
+  its(:stdout) { should match /^kernel.shmmax = 6465333657/ }
+  its(:stdout) { should match /^kernel.shmmni = 4096/ }
+  its(:stdout) { should match /^kernel.sem = 250\t32000\t100\t128/ }
+  its(:stdout) { should match /^net.core.rmem_default = 262144/ }
+  its(:stdout) { should match /^net.core.wmem_default = 262144/ }
+  its(:stdout) { should match /^net.core.rmem_max = 4194304/ }
+  its(:stdout) { should match /^net.core.wmem_max = 1048576/ }
+  its(:stdout) { should match /^fs.aio-max-nr = 1048576/ }
+  its(:stdout) { should_not match /^kernel.shmmax = 68719476736/ }
+  its(:stdout) { should_not match /^kernel.shmall = 4294967296/ }
 end
 
 # i:groupadd -g 200 oinstall
